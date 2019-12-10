@@ -17,7 +17,7 @@ module.exports = function(grunt){
 						line: true
 					},
 				},	
-				src: ['plugins/js/esri/esri-leaflet/esri-leaflet.js', 'plugins/js/esri/esri-leaflet-renderers/esri-leaflet-renderers.js', 'plugins/js/esri/esri-leaflet-geocoder/esri-leaflet-geocoder.js'],
+				src: ['plugins/js/esri/esri-leaflet/esri-leaflet.js', 'plugins/js/esri/esri-leaflet-renderers/esri-leaflet-renderers.js', 'plugins/js/esri/esri-leaflet-geocoder/esri-leaflet-geocoder.js', 'plugins/js/esri/esri-leaflet-legend/esri-leaflet-legend.js'],
 				dest: 'combined/js/esri/esri-leaflet-plugins.js'
 			},
 			js_leaflet: {
@@ -30,6 +30,10 @@ module.exports = function(grunt){
 				},
 				src: ['plugins/js/leaflet/leaflet-fullscreen/Leaflet.fullscreen.js', 'plugins/js/leaflet/leaflet-locate-control/L.Control.Locate.min.js', 'plugins/js/leaflet/leaflet-zoomhome/leaflet.zoomhome.js'],
 				dest: 'combined/js/leaflet/leaflet-plugins.js'
+			},
+			js_proj : {
+				src: ['plugins/js/proj4JS/proj4js/proj4.js', 'plugins/js/proj4JS/Proj4Leaflet/proj4leaflet/js'],
+				dest: 'combined/js/projections/projections.js'
 			}
 		},		
 		cssmin: {
@@ -55,6 +59,7 @@ module.exports = function(grunt){
 			  files: {
 				'bundled/js/esri-leaflet-plugins.min.js' : ['combined/js/esri/esri-leaflet-plugins.js'],
 				'bundled/js/leaflet-plugins.min.js' : ['combined/js/leaflet/leaflet-plugins.js'],
+				'bundled/js/projections.js.min.js' : ['combined/js/projections/projections.js']
 			  }
 			}
   		}		
