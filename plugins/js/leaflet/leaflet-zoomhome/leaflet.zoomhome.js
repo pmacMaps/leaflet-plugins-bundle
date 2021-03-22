@@ -18,7 +18,6 @@
             zoomOutTitle: 'Zoom out',
             zoomHomeIcon: 'home',
             zoomHomeTitle: 'Home',
-            imageSource: null,
             homeCoordinates: null,
             homeZoom: null
         },
@@ -37,7 +36,7 @@
 
             this._zoomInButton = this._createButton(options.zoomInText, options.zoomInTitle,
                 controlName + '-in', container, this._zoomIn.bind(this));
-            var zoomHomeText = '<img class="zoomhome-img" alt="icon of a house" src=' + options.imageSource + '/>';
+            var zoomHomeText = '<i class="fa fa-' + options.zoomHomeIcon + '" style="line-height:1.65;"></i>';
             this._zoomHomeButton = this._createButton(zoomHomeText, options.zoomHomeTitle,
                 controlName + '-home', container, this._zoomHome.bind(this));
             this._zoomOutButton = this._createButton(options.zoomOutText, options.zoomOutTitle,
@@ -47,40 +46,6 @@
             map.on('zoomend zoomlevelschange', this._updateDisabled, this);
 
             return container;
-        },
-
-        setHomeBounds: function (bounds) {
-            if (bounds === undefined) {
-                bounds = this._map.getBounds();
-            } else {
-                if (typeof bounds.getCenter !== 'function') {
-                    bounds = L.latLngBounds(bounds);
-                }
-            }
-            this.options.homeZoom = this._map.getBoundsZoom(bounds);
-            this.options.homeCoordinates = bounds.getCenter();
-        },
-
-        setHomeCoordinates: function (coordinates) {
-            if (coordinates === undefined) {
-                coordinates = this._map.getCenter();
-            }
-            this.options.homeCoordinates = coordinates;
-        },
-
-        setHomeZoom: function (zoom) {
-            if (zoom === undefined) {
-                zoom = this._map.getZoom();
-            }
-            this.options.homeZoom = zoom;
-        },
-
-        getHomeZoom: function () {
-            return this.options.homeZoom;
-        },
-
-        getHomeCoordinates: function () {
-            return this.options.homeCoordinates;
         },
 
         _zoomHome: function (e) {
