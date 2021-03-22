@@ -1,10 +1,17 @@
-.leaflet-control-zoomhome a[title="Full map extent"] {
+.leaflet-control-zoomhome a {
     font: bold 18px "Lucida Console",Monaco,monospace;
 }
 
-/* Customize styling for zoomhome-in and zoomhome-out classes
- * Get them centered and large size */
+a.leaflet-control-zoomhome-in,
+a.leaflet-control-zoomhome-out {
+  font-size: 1.5em;
+  line-height: 26px;
+}
 
- 
-
-
+.zoomhome-img {
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+  height: 0.95em;
+  width: 0.95em;
+}
